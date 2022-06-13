@@ -1,0 +1,29 @@
+<button (click)="handleCreateProveedor()">Create Proveedor</button>
+<table border="1">
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Nombre</td>
+      <td>Direccion</td>
+      <td>NIT</td>
+      <td>Celular</td>
+      <td>Estado</td>
+      <td>Acciones</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let proveedor of proveedores">
+      <td>{{proveedor.id}}</td>
+      <td>{{proveedor.name}}</td>
+      <td>{{proveedor.address}}</td>
+      <td>{{proveedor.nit}}</td>
+      <td>{{proveedor.phone}}</td>
+      <td *ngIf="proveedor.status=='enable'">Activo</td>
+      <td *ngIf="proveedor.status=='disable'">Inactivo</td>
+      <td>
+        <button (click)="handleEditProveedor(proveedor.id)">Edit</button>
+        <button (click)="handeDeleteProveedor(proveedor.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
